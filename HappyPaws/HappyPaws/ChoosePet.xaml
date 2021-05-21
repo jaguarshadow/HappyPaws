@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappyPaws.ChoosePet">
+    <NavigationPage.TitleView>
+        <Label x:Name="titleLabel" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Select one or more pets to add to this appointment, or add a new pet."/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pets:" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Button Text="New Pet" HorizontalOptions="End" WidthRequest="85" Clicked="NewPet_Clicked"/>
+            </StackLayout>
+            <CollectionView x:Name="petsListView" SelectionMode="Multiple" Margin="0, 10, 0, 0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <BoxView HeightRequest="1" Color="Gray"/>
+                            <StackLayout Orientation="Horizontal" Padding="5">
+                                <Label Text="{Binding Species}" TextColor="Black" FontSize="18" FontAttributes="Italic" WidthRequest="50"/>
+                                <Label Text="{Binding Name}" TextColor="Black" FontSize="18" FontAttributes="Bold"  WidthRequest="200"/>
+                                <Label Text="{Binding Breed}" TextColor="Black" FontSize="15" FontAttributes="Bold" WidthRequest="200"/>
+                            </StackLayout>
+                            <BoxView HeightRequest="1" Color="Gray"/>
+                            </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Confirm" Clicked="Confirm_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

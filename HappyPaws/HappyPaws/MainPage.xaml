@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappyPaws.MainPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="Happy Paws" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"  TextColor="White"/>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Appointment" Clicked="AddAppointment_Clicked" Order="Secondary"/>
+        <ToolbarItem Text="Customers" Clicked="Customers_Clicked" Order="Secondary"/>
+        <ToolbarItem Text="Reports" Clicked="Reports_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="5">
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="filterLabel" Text="Upcoming Appointments" FontSize="22" FontAttributes="Bold" TextColor="DarkSlateGray"/>
+            <Picker x:Name="apptPicker" Title="Filter Appts" FontSize="15" SelectedIndexChanged="ApptPicker_SelectedIndexChanged" HorizontalOptions="EndAndExpand" WidthRequest="110">
+                <Picker.Items>
+                    <x:String>All Appts</x:String>
+                    <x:String>Future Appts</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
+        <CollectionView x:Name="apptListView" SelectionMode="Single" SelectionChanged="ApptSelection_Changed">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <BoxView HeightRequest="1" Color="Gray"/>
+                        <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
+                            <Label Text="{Binding StartTime}" TextColor="Black" FontSize="18" FontAttributes="Italic" />
+                            <Label Text="{Binding ApptType}" TextColor="Black" FontSize="18"  HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
+                            <Label Text="{Binding CustomerName}" TextColor="Black" FontSize="18" FontAttributes="Italic" WidthRequest="200"/>
+                            <Label Text="{Binding NumPets}" TextColor="Black" FontSize="18" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" Color="Gray"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+          </CollectionView>
+    </StackLayout>
+
+</ContentPage>

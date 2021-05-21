@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappyPaws.ViewAppointment">
+    <NavigationPage.TitleView>
+        <Label Text="View Appointment" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="-50, 0, 0, 0" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit Appointment" Clicked="EditAppt_Clicked" Order="Secondary"/>
+        <ToolbarItem Text="Delete Appointemnt" Clicked="DeleteAppt_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <StackLayout Padding="10">
+            <StackLayout Orientation="Horizontal" Padding="5">
+                <Label x:Name="dateLabel" FontSize="22" TextColor="MidnightBlue" FontAttributes="Bold"/>
+                <Label x:Name="timeLabel" FontSize="16" TextColor="MidnightBlue" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <BoxView BackgroundColor="DarkGray" HeightRequest="1"/>
+
+            <StackLayout Padding="5, 0, 5, 5">
+                <StackLayout Orientation="Horizontal" Padding="10, 0, 0, 0">
+                    <Label Text="Owner:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="ownerLabel" HorizontalOptions="End"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10, 0, 0, 0">
+                    <Label Text="Home Address:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="oAddressLabel" HorizontalOptions="End"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <Label Text="Type:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="typeLabel" WidthRequest="150"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="visitLayout" IsVisible="False">
+                <Label Text="Services Requested:" FontAttributes="Bold" FontSize="18" HorizontalOptions="Start" Margin="15, 0, 0, 0"/>
+                <StackLayout Orientation="Horizontal" Margin="50, 0, 0, 0">
+                    <CheckBox x:Name="foodCheckBox" IsEnabled="False" Color="Gray"/>
+                    <Label Text="Feed" VerticalTextAlignment="Center"/>
+                    <CheckBox x:Name="playCheckBox" Margin="40,0,0,0" IsEnabled="False" Color="Gray"/>
+                    <Label Text="Play" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="50, 0, 0, 0">
+                    <CheckBox x:Name="walkCheckBox" IsEnabled="False" Color="Gray"/>
+                    <Label Text="Walk" VerticalTextAlignment="Center"/>
+                    <CheckBox x:Name="scoopCheckBox" Margin="40,0,0,0" IsEnabled="False" Color="Gray"/>
+                    <Label Text="Scoop" VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+
+            <StackLayout x:Name="transportLayout" IsVisible="False" Padding="5,0,0,0">
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <Label Text="From:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="startAddressLabel"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <Label Text="To:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="destAddressLabel"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <Label Text="Reason:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="reasonLabel"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <CheckBox x:Name="roundTripCheckBox" IsEnabled="False" Color="Gray"/>
+                    <Label Text="Round Trip" FontSize="16" VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Padding="5">
+                <Label Text="Pets:" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout BackgroundColor="AliceBlue">
+                <CollectionView x:Name="petsListView" SelectionMode="Single" SelectionChanged="PetSelection_Changed">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <BoxView HeightRequest="1" Color="LightGray"/>
+                                <StackLayout Orientation="Horizontal" Padding="5">
+                                    <Label Text="{Binding Species}" TextColor="Black" FontSize="18" FontAttributes="Italic" WidthRequest="50"/>
+                                    <Label Text="{Binding Name}" TextColor="Black" FontSize="18" FontAttributes="Bold"  WidthRequest="200"/>
+                                    <Label Text="{Binding Breed}" TextColor="Black" FontSize="15" FontAttributes="Bold" WidthRequest="200"/>
+                                </StackLayout>
+                                <BoxView HeightRequest="1" Color="LightGray"/>
+                                </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

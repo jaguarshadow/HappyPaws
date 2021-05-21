@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappyPaws.AddCustomer">
+    <NavigationPage.TitleView>
+        <Label x:Name="titleLabel" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0, 0, 75, 0" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Margin="30, 20, 30, 0">
+            <Entry x:Name="nameEntry" Placeholder="Customer Name" TextChanged="Entry_TextChanged" Unfocused="Validation_Handler"/>
+            <Label Text="Customer Name" FontSize="12" Margin="0, -10, 0, 0"/>
+            <Label x:Name="nameValidationLabel" Text="Name cannot be blank" IsVisible="false" TextColor="Red" FontSize="14" />
+            <Editor x:Name="addressEntry" Placeholder="Customer Address"   HeightRequest="70" TextChanged="Entry_TextChanged" Unfocused="Validation_Handler"/>
+            <Label Text="Customer Address" FontSize="12" Margin="0, -10, 0, 0"/>
+            <Label x:Name="addressValidationLabel" Text="Address cannot be blank" IsVisible="false" TextColor="Red" FontSize="14" />
+            <Entry x:Name="emailEntry" Placeholder="name@domain.com" TextChanged="Entry_TextChanged" Unfocused="Validation_Handler"/>
+            <Label Text="Customer Email" FontSize="12" Margin="0, -10, 0, 0"/>
+            <Label x:Name="emailValidationLabel" Text="Email format must be: name@domain.com" IsVisible="false" TextColor="Red" FontSize="14" />
+            <Entry x:Name="phoneEntry" Placeholder="555-555-5555" MaxLength="12" TextChanged="Entry_TextChanged" Unfocused="Validation_Handler"/>
+            <Label Text="Customer Phone" FontSize="12" Margin="0, -10, 0, 0"/>
+            <Label x:Name="phoneValidationLabel" Text="Phone format must be: 555-555-5555" IsVisible="false" TextColor="Red" FontSize="14"/>
+            <Button Text="Save" x:Name="saveButton" HorizontalOptions="Center" WidthRequest="75" Clicked="SaveButton_Clicked" IsEnabled="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

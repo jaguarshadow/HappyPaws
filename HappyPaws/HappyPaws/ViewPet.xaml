@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappyPaws.ViewPet">
+    <NavigationPage.TitleView>
+        <Label Text="View Pet" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="-50, 0, 0, 0" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit Pet" Clicked="EditPet_Clicked" Order="Secondary"/>
+        <ToolbarItem Text="Delete Pet" Clicked="DeletePet_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <StackLayout Padding="10">
+            <StackLayout Orientation="Horizontal" Padding="5">
+                <Label x:Name="petNameLabel" FontSize="22" TextColor="MidnightBlue" FontAttributes="Bold"/>
+                <Label x:Name="speciesLabel" FontSize="22" TextColor="MidnightBlue" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <BoxView BackgroundColor="DarkGray" HeightRequest="1"/>
+
+            <StackLayout Padding="5, 0, 5, 5">
+                <StackLayout Orientation="Horizontal" Padding="10, 0, 0, 0">
+                    <Label Text="Owner:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="ownerLabel" HorizontalOptions="End"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 40, 0">
+                    <Label Text="Breed:" FontAttributes="Bold"  WidthRequest="75"/>
+                    <Label x:Name="breedLabel" WidthRequest="175"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <Label Text="Age:" FontAttributes="Bold" WidthRequest="75"/>
+                    <Label x:Name="ageLabel" WidthRequest="85"/>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 60, 0">
+                    <Label x:Name="tAllowedLabel" Text="Treats:" FontAttributes="Bold"  WidthRequest="75"/>
+                    <Label x:Name="treatsLabel" Text="No"/>
+                    <Label x:Name="sAllowedLabel" Text="Socializing:" FontAttributes="Bold"  WidthRequest="95" HorizontalOptions="EndAndExpand"/>
+                    <Label x:Name="socialLabel" Text="No"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10, 5, 0, 0">
+                    <Label Text="Special Needs:" FontAttributes="Bold"  WidthRequest="130"/>
+                    <Label x:Name="specialLabel" Text="No"/>
+                </StackLayout>
+
+            </StackLayout>
+            <Label Text="Notes:" FontAttributes="Bold"  WidthRequest="120" Padding="10, 0, 0, 0"/>
+            <ScrollView>
+                <Label x:Name="notesLabel" Padding="10, 0, 10, 5"/>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
